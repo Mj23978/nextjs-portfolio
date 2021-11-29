@@ -1,0 +1,110 @@
+{
+	"name": "portfolio",
+	"description": "A redesign of my portfolio website.",
+	"version": "0.2.1",
+	"author": {
+		"name": "Mohammad Javad Hossieni",
+		"email": "admin@fluttensor.tk",
+		"url": "https://fluttensor.tk/"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mj23978/portfolio"
+	},
+	"private": false,
+	"scripts": {
+		"dev": "next dev -p 4001",
+		"build": "next build",
+		"postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs",
+		"component:create": "hygen component new",
+		"content:create": "contentlayer build",
+		"start": "next start",
+		"test:ci": "jest --ci",
+		"test:coverage": "jest --selectProjects test --coverage",
+		"test:watch": "jest --selectProjects test --watch ",
+		"test": "jest --selectProjects test"
+	},
+	"dependencies": {
+		"@prisma/client": "^3.5.0",
+		"@tailwindcss/typography": "0.4.1",
+		"classnames": "^2.3.1",
+		"contentlayer": "^0.0.32",
+		"date-fns": "^2.11.1",
+		"formik": "^2.2.9",
+		"framer-motion": "5.3.3",
+		"googleapis": "91.0.0",
+		"gray-matter": "^4.0.2",
+		"motion": "^10.4.0",
+		"next": "12.0.0",
+		"next-auth": "4.0.0-beta.7",
+		"next-contentlayer": "^0.0.32",
+		"next-pwa": "^5.2.24",
+		"next-themes": "0.0.15",
+		"nprogress": "^0.2.0",
+		"react": "17.0.2",
+		"react-copy-to-clipboard": "5.0.4",
+		"react-dom": "17.0.2",
+		"react-intersection-observer": "8.29.1",
+		"react-spring": "^9.3.2",
+		"reading-time": "1.2.0",
+		"swr": "1.0.1",
+		"use-delayed-render": "^0.0.7"
+	},
+	"devDependencies": {
+		"@types/node": "^14.14.22",
+		"@types/react": "^17.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.2.0",
+		"@typescript-eslint/parser": "^5.2.0",
+		"autoprefixer": "^10.2.4",
+		"axios": "^0.21.1",
+		"eslint": "^7.23.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-react": "^7.27.1",
+		"eslint-plugin-react-hooks": "^4.3.0",
+		"globby": "12.0.2",
+		"husky": "^7.0.4",
+		"next-images": "^1.7.0",
+		"postcss": "^8.4.3",
+		"prisma": "3.5.0",
+		"rehype": "12.0.0",
+		"rehype-autolink-headings": "6.1.0",
+		"rehype-code-titles": "1.0.3",
+		"rehype-prism-plus": "^1.1.1",
+		"rehype-slug": "5.0.0",
+		"remark-gfm": "^2.0.0",
+		"rss": "1.2.2",
+		"sass": "1.43.5",
+		"tailwindcss": "^2.2.19",
+		"typescript": "^4.5.2"
+	},
+	"lint-staged": {
+		"*.+(js|ts|tsx)": [
+			"eslint"
+		],
+		"**.*.+(js|json|ts|tsx)": [
+			"prettier --write"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"pre-push": "tsc"
+		}
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"engines": {
+		"node": ">=12"
+	}
+}
