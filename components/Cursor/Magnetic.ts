@@ -61,7 +61,7 @@ export default class Magnetic {
     };
 
     private mouseMove = (event: MouseEvent) => {
-        let distance = this.getDistance(
+        const distance = this.getDistance(
             event.clientX + window.scrollX,
             event.clientY + window.scrollY
         );

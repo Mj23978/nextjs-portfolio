@@ -1,10 +1,8 @@
-import React from 'react';
-import useForm from 'lib/hooks/useForm';
-import Image from 'next/image';
-
-import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
-import ScrollAnimation from 'react-animate-on-scroll';
 import classNames from 'classnames';
+import React from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
+import useForm from 'lib/hooks/useForm';
+
 
 const Contact: React.FC = () => {
 	const { formData, errors, handleInput, handleMessageInput, isFormValid } =

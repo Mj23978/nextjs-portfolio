@@ -1,8 +1,8 @@
-import { useTheme } from 'next-themes'
 import React from 'react'
 import ScrollAnimation from 'react-animate-on-scroll'
+import { useTheme } from 'next-themes'
 
-import { Paperclip, GitHub } from 'react-feather'
+import { GitHub, Paperclip } from 'react-feather'
 
 export type Project = {
   title: string
@@ -69,7 +69,7 @@ const AboutComponent: React.FC = () => {
     },
   ]
 
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   console.log(resolvedTheme)
 
   return (
@@ -82,7 +82,7 @@ const AboutComponent: React.FC = () => {
 			</ScrollAnimation>
 			<div className="py-5 w-[70vw] flex flex-col items-center md:grid md:gap-8 lg:grid-cols-fill-300px md:grid-cols-fill-250px overflow-hidden">
 				{Projects.map((project, index) => (
-					<ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>
+					<ScrollAnimation key={project.title + index} animateIn="animate__fadeIn" animateOnce={true}>
 						<div id={"project-" + index} className="flex flex-col bg-[#ffdbdb] dark:bg-[#232222] w-[300px] h-[300px] p-7 justify-between transition delay-100 ease-linear rounded-lg hover:-translate-y-2">
 							<div className="flex flex-col">
 								<div className="flex justify-between items-center">

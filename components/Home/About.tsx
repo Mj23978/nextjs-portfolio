@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 
 import { ArrowRight } from 'react-feather';
 

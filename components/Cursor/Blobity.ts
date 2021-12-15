@@ -1,7 +1,7 @@
-import throttle from 'lodash/throttle';
 import Kinet from 'kinet';
-import { Color, convertColor, isGradient, positive } from './helpers';
 import Magnetic from './Magnetic';
+import throttle from 'lodash/throttle';
+import { Color, convertColor, isGradient, positive } from './helpers';
 
 export type Options = {
     color: string | string[];
