@@ -1,10 +1,10 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { getTweets } from 'lib/twitter';
+
 import { allBlogs } from '.contentlayer/data';
 import type { Blog } from '.contentlayer/types';
-
-import components from 'components/Blog/MDXComponents';
 import BlogLayout from 'layouts/blog';
+import components from 'components/Blog/MDXComponents';
+import { getTweets } from 'lib/twitter';
 import Tweet from 'components/Tweet';
 
 export default function Post({ post, tweets }: { post: Blog; tweets: any[] }) {

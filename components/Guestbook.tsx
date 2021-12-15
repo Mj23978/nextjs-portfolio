@@ -1,13 +1,13 @@
-import { useState, useRef } from 'react';
 import { format } from 'date-fns';
 import { signIn, useSession } from 'next-auth/react';
+import { useRef, useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
-import fetcher from 'lib/fetcher';
-import { Form, FormState } from 'lib/types';
-import SuccessMessage from 'components/SuccessMessage';
 import ErrorMessage from 'components/ErrorMessage';
+import fetcher from 'lib/fetcher';
 import LoadingSpinner from 'components/LoadingSpinner';
+import SuccessMessage from 'components/SuccessMessage';
+import { Form, FormState } from 'lib/types';
 
 function GuestbookEntry({ entry, user }) {
   const { mutate } = useSWRConfig();
@@ -96,7 +96,6 @@ export default function Guestbook({ fallbackData }) {
           Share a message for a future visitor of my site.
         </p>
         {!session && (
-          // eslint-disable-next-line @next/next/no-html-link-for-pages
           <a
             href="/api/auth/signin/github"
             className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"

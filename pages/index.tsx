@@ -1,15 +1,13 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'react-feather'
 
-import Container from '../components/Container';
-import BlogPostCard from '../components/Home/BlogPostCard';
-import Subscribe from '../components/Subscribe';
-import Contact from 'components/Home/Contact';
-import Projects from 'components/Home/Projects';
 import About from 'components/Home/About';
+import BlogPostCard from '../components/Home/BlogPostCard';
+import Contact from 'components/Home/Contact';
+import Container from '../components/Container';
+import Projects from 'components/Home/Projects';
+import Subscribe from '../components/Subscribe';
 
-export default function Home({ videos }) {
+export default function Home() {
   return (
 		<Container>
 			<About />

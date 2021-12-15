@@ -1,10 +1,10 @@
+import { InferGetStaticPropsType } from 'next';
 import { useState } from 'react';
 
-import Container from 'components/Container';
-import BlogPost from 'components/Blog/BlogPost';
-import { InferGetStaticPropsType } from 'next';
-import { pick } from 'lib/utils';
 import { allBlogs } from '.contentlayer/data';
+import BlogPost from 'components/Blog/BlogPost';
+import Container from 'components/Container';
+import { pick } from 'lib/utils';
 
 export default function Blog({
   posts

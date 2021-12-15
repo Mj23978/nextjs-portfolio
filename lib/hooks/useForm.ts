@@ -64,7 +64,7 @@ const useForm = () => {
   }
 
   const isFormValid = () => {
-    let errorArray = Object.values(errors)
+    const errorArray = Object.values(errors)
     return errorArray.length === 3 && errorArray.filter(Boolean).length === 0
   }
 

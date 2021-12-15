@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { parseISO, format } from 'date-fns';
+import type { PropsWithChildren } from 'react';
+import { format, parseISO } from 'date-fns';
 
+import type { Blog } from '.contentlayer/types';
 import Container from 'components/Container';
 import Subscribe from 'components/Subscribe';
 import ViewCounter from 'components/Home/ViewCounter';
-import type { PropsWithChildren } from 'react';
-import type { Blog } from '.contentlayer/types';
 
 const editUrl = (slug) =>
   `https://github.com/leerob/leerob.io/edit/main/data/blog/${slug}.mdx`;

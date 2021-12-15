@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType } from 'next';
-import { allSnippets } from '.contentlayer/data';
 
+import { allSnippets } from '.contentlayer/data';
 import Container from 'components/Container';
 import FunctionCard from 'components/Snippets/FunctionCard';
 import { pick } from 'lib/utils';

@@ -1,12 +1,12 @@
-import { useState, useRef } from 'react';
 import Link from 'next/link';
 import useSWR from 'swr';
+import { useRef, useState } from 'react';
 
-import fetcher from 'lib/fetcher';
-import { Form, FormState, Subscribers } from 'lib/types';
-import SuccessMessage from 'components/SuccessMessage';
 import ErrorMessage from 'components/ErrorMessage';
+import fetcher from 'lib/fetcher';
 import LoadingSpinner from 'components/LoadingSpinner';
+import SuccessMessage from 'components/SuccessMessage';
+import { Form, FormState, Subscribers } from 'lib/types';
 
 export default function Subscribe() {
   const [form, setForm] = useState<FormState>({ state: Form.Initial });
