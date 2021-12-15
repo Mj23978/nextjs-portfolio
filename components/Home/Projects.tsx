@@ -76,14 +76,14 @@ const AboutComponent: React.FC = () => {
 		// <div className="flex md:m-24 justify-center flex-col my-24 mx-3 sm:items-center">
 		<div className="">
 			<ScrollAnimation animateIn="animate__bounceInRight" animateOnce={true}>
-				<h1 className="bg-gradient-to-r from-[#EF9797] via-[#CE7EC7] #A364D6 to-[#A1D0F9] font-bold w-[fit-content] bg-clip-text text-black dark:text-transparent inline-block text-4xl py-2 my-10 text-center">
+				<h1 id="project-header" className="bg-gradient-to-r from-[#EF9797] via-[#CE7EC7] #A364D6 to-[#A1D0F9] font-bold w-[fit-content] bg-clip-text text-black dark:text-transparent inline-block text-4xl py-2 my-10 text-center">
 					Things I've Built...
 				</h1>
 			</ScrollAnimation>
 			<div className="py-5 w-[70vw] flex flex-col items-center md:grid md:gap-8 lg:grid-cols-fill-300px md:grid-cols-fill-250px overflow-hidden">
 				{Projects.map((project, index) => (
 					<ScrollAnimation animateIn="animate__fadeIn" animateOnce={true}>
-						<div className="flex flex-col bg-[#ffdbdb] dark:bg-[#232222] w-[300px] h-[300px] p-7 justify-between transition delay-100 ease-linear rounded-lg hover:-translate-y-2">
+						<div id={"project-" + index} className="flex flex-col bg-[#ffdbdb] dark:bg-[#232222] w-[300px] h-[300px] p-7 justify-between transition delay-100 ease-linear rounded-lg hover:-translate-y-2">
 							<div className="flex flex-col">
 								<div className="flex justify-between items-center">
 									<svg

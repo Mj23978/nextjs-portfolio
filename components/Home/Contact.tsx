@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import ScrollAnimation from 'react-animate-on-scroll';
-import styled from 'styled-components';
 import classNames from 'classnames';
 
 const Contact: React.FC = () => {

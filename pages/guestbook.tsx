@@ -5,7 +5,7 @@ import Guestbook from 'components/Guestbook';
 export default function GuestbookPage({ fallbackData }) {
   return (
     <Container
-      title="Guestbook – Lee Robinson"
+      title="Guestbook – Fluttensor"
       description="Sign my digital guestbook and share some wisdom."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
