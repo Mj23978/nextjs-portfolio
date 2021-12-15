@@ -3,7 +3,7 @@ import { parseISO, format } from 'date-fns';
 
 import Container from 'components/Container';
 import Subscribe from 'components/Subscribe';
-import ViewCounter from 'components/ViewCounter';
+import ViewCounter from 'components/Home/ViewCounter';
 import type { PropsWithChildren } from 'react';
 import type { Blog } from '.contentlayer/types';
 

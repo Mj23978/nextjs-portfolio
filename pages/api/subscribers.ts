@@ -22,4 +22,5 @@ export default async function handler(
   );
 
   return res.status(200).json({ count: data.length });
+  // return res.status(200).json({ count: 0 });
 }

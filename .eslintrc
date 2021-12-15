@@ -4,10 +4,12 @@
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:prettier/recommended",
 		"plugin:jest/recommended"
 	],
-	"plugins": ["@typescript-eslint", "jsx-a11y"],
+	"plugins": [
+		"@typescript-eslint",
+		"jsx-a11y"
+	],
 	"settings": {
 		"react": {
 			"version": "detect"
@@ -20,7 +22,12 @@
 				"ignoreCase": true,
 				"ignoreDeclarationSort": false,
 				"ignoreMemberSort": false,
-				"memberSyntaxSortOrder": ["none", "all", "single", "multiple"],
+				"memberSyntaxSortOrder": [
+					"none",
+					"all",
+					"single",
+					"multiple"
+				],
 				"allowSeparatedGroups": true
 			}
 		],

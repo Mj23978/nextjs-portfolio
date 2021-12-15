@@ -6,7 +6,16 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      gridTemplateColumns: {
+        'fill-300px': 'repeat(auto-fill, minmax(300px, 0fr))',
+        'fill-250px': 'repeat(auto-fill, minmax(250px, 0fr))',
+        'fill-140px': 'repeat(auto-fill, minmax(140px, 0fr))',
+        'fill-120px': 'repeat(auto-fill, minmax(120px, 0fr))',
+        'fill-100px': 'repeat(auto-fill, minmax(100px, 0fr))',
+      },
       colors: {
+        'my-gradient':
+          'linear-gradient(93.05deg, #EF9797 3.98%, rgba(206, 126, 199, 0.801616) 35.29%, #A364D6 68.78%, #A1D0F9 97.44%)',
         'blue-opaque': 'rgb(13 42 148 / 18%)',
         gray: {
           0: '#fff',

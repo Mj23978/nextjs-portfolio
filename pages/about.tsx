@@ -1,11 +1,10 @@
 import Link from 'next/link';
 
-import Timeline from '../components/Timeline';
 import Container from 'components/Container';
 
 export default function About() {
   return (
-    <Container title="About – Lee Robinson">
+    <Container title="About – Fluttensor">
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           About Me
@@ -45,13 +44,6 @@ export default function About() {
             and family in Des Moines, IA.
           </p>
         </div>
-        <Timeline />
-        <iframe
-          height="280"
-          src="https://www.google.com/maps/d/embed?mid=1QOGi-u8d4vwoQ4vC4zQjKxrSfsDIQdOK&hl=en"
-          title="Lee's Travel Map"
-          width="100%"
-        />
       </div>
     </Container>
   );
