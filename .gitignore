@@ -29,5 +29,5 @@ yarn-error.log*
 
 .keystone
 app.db
-schema.prisma
-schema.graphql
+# schema.prisma
+# schema.graphql
