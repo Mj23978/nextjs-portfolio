@@ -16,7 +16,6 @@
 	"scripts": {
 		"dev": "next dev -p 4001",
 		"build": "next build",
-		"postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs",
 		"component:create": "hygen component new",
 		"content:create": "contentlayer build",
 		"start": "next start",
