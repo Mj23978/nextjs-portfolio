@@ -1,17 +1,17 @@
 // const withPWA = require("next-pwa");
 // const runtimeCaching = require("next-pwa/cache");
-// const { withContentlayer } = require('next-contentlayer');
+const { withContentlayer } = require('next-contentlayer');
 
-// module.exports = withContentlayer()({
-//   swcMinify: true,
-//   reactStrictMode: true,
-//   images: {
-//     domains: [
-//       'i.scdn.co', // Spotify Album Art
-//       'pbs.twimg.com' // Twitter Profile Picture
-//     ]
-//   },
-// });
+module.exports = withContentlayer()({
+  swcMinify: true,
+  reactStrictMode: true,
+  images: {
+    domains: [
+      'i.scdn.co', // Spotify Album Art
+      'pbs.twimg.com' // Twitter Profile Picture
+    ]
+  },
+});
 
 // module.exports = withPWA({
 //   pwa: {
