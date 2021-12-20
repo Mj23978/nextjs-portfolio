@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import ScrollAnimation from 'react-animate-on-scroll';
 import useForm from 'lib/hooks/useForm';
 
 
@@ -11,7 +10,7 @@ const Contact: React.FC = () => {
 	return (
 		<div
 			// className="flex flex-col w-[100vw] justify-center mt-20 mb-36"
-			className="flex flex-col mt-20 mb-20 w-full"
+			className="flex flex-col mt-20 mb-20 max-w-xs sm:max-w-md justify-center md:w-[100vw] md:max-w-xl lg:max-w-4xl"
 			id="contact"
 		>
 			<h1 className="inline-block text-4xl bg-gradient-to-r from-[#EF9797] via-[#CE7EC7] #A364D6 to-[#A1D0F9] font-bold w-[fit-content] bg-clip-text text-black dark:text-transparent">
@@ -33,20 +32,16 @@ const Contact: React.FC = () => {
 				action="https://formspree.io/f/mdoyezjy"
 				method="POST"
 			>
-				<ScrollAnimation animateIn="animate__flipInX" animateOnce={true}>
-					<p className="text-black dark:text-white text-3xl">
-						👋 Hello, what's up?
-					</p>
-				</ScrollAnimation>
-				<ScrollAnimation animateIn="animate__flipInX" animateOnce={true}>
-					<p className="text-black dark:text-white text-xl w-[400px] my-6 mb-10 text-center ">
-						Whether you have a question, want to say hi, or anything else that
-						it might be, my inbox is always open!
-					</p>
-				</ScrollAnimation>
+				<p className="text-black dark:text-white text-3xl">
+					👋 Hello, what's up?
+				</p>
+				<p className="text-black dark:text-white text-xl sm:w-[320px] md:w-[400px] my-6 mb-10 text-center ">
+					Whether you have a question, want to say hi, or anything else that it
+					might be, my inbox is always open!
+				</p>
 				<input
 					className={classNames(
-						'p-8 outline-none border-none bg-[#f8eeee] dark:bg-[#37393E] text-xl w-[500px] rounded-md my-6 transition ease-linear delay-100 z-10 w-max-[90vw] focus:scale-[98%]',
+						'p-8 outline-none border-none bg-[#f8eeee] dark:bg-[#37393E] text-xl sm:w-[380px] md:w-[500px] rounded-md my-6 transition ease-linear delay-100 z-10 w-max-[90vw] focus:scale-[98%]',
 						errors!.name && 'invalid'
 					)}
 					placeholder="your@email.com"
@@ -62,7 +57,7 @@ const Contact: React.FC = () => {
 					placeholder="Your Name"
 					type="text"
 					className={classNames(
-						'p-8 outline-none border-none text-black bg-[#f8eeee] dark:bg-[#37393E] text-xl w-[500px] rounded-md mt-6 mb-12 transition ease-linear delay-100 z-10 w-max-[90vw] focus:scale-[98%]',
+						'p-8 outline-none border-none text-black bg-[#f8eeee] dark:bg-[#37393E] text-xl sm:w-[380px] md:w-[500px] rounded-md mt-6 mb-12 transition ease-linear delay-100 z-10 w-max-[90vw] focus:scale-[98%]',
 						errors!.name && 'invalid'
 					)}
 					onChange={() => handleInput}
@@ -74,7 +69,7 @@ const Contact: React.FC = () => {
 				<textarea
 					placeholder="What would you like to tell me?"
 					className={classNames(
-						'p-6 outline-none border-none text-black text-lg bg-[#f8eeee] dark:bg-[#37393E] w-[500px] round-md z-10 transition ease-linear delay-100 focus:scale-[98%]',
+						'p-10 outline-none border-none text-black text-lg bg-[#f8eeee] dark:bg-[#37393E] sm:w-[380px] md:w-[500px] round-md z-10 transition ease-linear delay-100 focus:scale-[98%] w-max-[90vw]',
 						errors!.message && 'invalid'
 					)}
 					onChange={() => handleMessageInput}
@@ -83,16 +78,14 @@ const Contact: React.FC = () => {
 					required
 					autoComplete="off"
 				/>
-				<ScrollAnimation animateIn="animate__flipInX" animateOnce={true}>
-					<button
-						className="w-[fit-content] text-[#e0bbbb] dark:text-white py-3 px-6 text-xl mt-12 cursor-none bg-none border-2 border-solid dark:border-white outline-none rounded-lg hover:bg-gray-500 focus:bg-gray-500"
-						type="submit"
-						value="send"
-						disabled={!isFormValid}
-					>
-						Send Email
-					</button>
-				</ScrollAnimation>
+				<button
+					className="w-[fit-content] text-[#e0bbbb] dark:text-white py-3 px-6 text-xl mt-12 cursor-none bg-none border-2 border-solid dark:border-white outline-none rounded-lg hover:bg-gray-500 focus:bg-gray-500"
+					type="submit"
+					value="send"
+					disabled={!isFormValid}
+				>
+					Send Email
+				</button>
 			</form>
 		</div>
 	);

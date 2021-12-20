@@ -1,24 +1,25 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from 'next/server';
 import type { NextFetchEvent, NextRequest } from 'next/server';
 
-export function middleware(req: NextRequest, ev: NextFetchEvent) {
-  const ContentSecurityPolicy = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com;
-    child-src *.youtube.com *.google.com *.twitter.com;
-    style-src 'self' 'unsafe-inline' *.googleapis.com;
-    img-src * blob: data:;
-    media-src 'none';
-    connect-src *;
-    font-src 'self';
-  `;
+export function middleware(_req: NextRequest, _ev: NextFetchEvent) {
+  // const ContentSecurityPolicy = `
+  //   default-src 'self';
+  //   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com;
+  //   child-src *.youtube.com *.google.com *.twitter.com;
+  //   style-src 'self' 'unsafe-inline' *.googleapis.com;
+  //   img-src * blob: data:;
+  //   media-src 'none';
+  //   connect-src *;
+  //   font-src 'self';
+  // `;
 
   const response = NextResponse.next();
 
-  response.headers.set(
-    'Content-Security-Policy',
-    ContentSecurityPolicy.replace(/\n/g, '')
-  );
+  // response.headers.set(
+  //   'Content-Security-Policy',
+  //   ContentSecurityPolicy.replace(/\n/g, '')
+  // );
   response.headers.set('Referrer-Policy', 'origin-when-cross-origin');
   response.headers.set(
     'Permissions-Policy',
