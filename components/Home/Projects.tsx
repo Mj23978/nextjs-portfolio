@@ -25,7 +25,7 @@ const AboutComponent: React.FC = () => {
 			title: 'Next Ecommerce',
 			description:
 			'eCommerce Sample Made With Next, Saleor, Apollo, Stripe, Tailwindcss, React Hook Form',
-			tags: 'React Next Apollo Saleor Stripe',
+			tags: 'React Next Apollo Saleor',
 			link: '',
 			github: 'mj23978/next-ecommerce',
 		},
@@ -119,6 +119,13 @@ const AboutComponent: React.FC = () => {
 									<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
 								</svg>
 								<div className="flex">
+									<a
+										className="mr-6 text-black dark:text-white transition delay-100 ease-linear hover:scale-110"
+										href={`https://github.com/${project.github}`}
+										target="_blank"
+									>
+										<GitHub />
+									</a>
 									{project.link == '' ? (
 										<div></div>
 									) : (
@@ -132,20 +139,13 @@ const AboutComponent: React.FC = () => {
 											</a>
 										</div>
 									)}
-									<a
-										className="mr-6 text-black dark:text-white transition delay-100 ease-linear hover:scale-110"
-										href={`https://github.com/${project.github}`}
-										target="_blank"
-									>
-										<GitHub />
-									</a>
 								</div>
 							</div>
 							<h3 className="text-2xl my-4 text-black dark:text-white">
 								{project.title}
 							</h3>
 							<p className="text-lg text-black dark:text-white">
-								{project.description}
+								{project.description.length > 50 ? project.description.substring(0, 49) + "..." : project.description}
 							</p>
 						</div>
 						<p className="font-mono text-sm text-black dark:text-white mt-1.5">
