@@ -11,11 +11,11 @@ export default NextAuth({
 	callbacks: {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		redirect({ url, baseUrl }) {
-      console.log(baseUrl + '/auth/redirect');
-      return baseUrl + '/auth/redirect';
-			// if (url.startsWith(baseUrl)) return url;
-			// else if (url.startsWith('/')) return new URL(url, baseUrl).toString();
-			// return baseUrl;
+      // console.log(baseUrl + '/auth/redirect');
+      // return baseUrl + '/auth/redirect';
+			if (url.startsWith(baseUrl)) return url;
+			else if (url.startsWith('/')) return new URL(url, baseUrl).toString();
+			return baseUrl;
 		},
 	},
 	secret: process.env.AUTH_SECRET,
