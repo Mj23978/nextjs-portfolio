@@ -9,7 +9,7 @@ export default function About() {
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
           <p>
-            Hey, I’m Lee. I'm a Developer, Data Scientist;
+            Hey, I’m Mj. I'm a Developer, Data Scientist;
           </p>
           {/* <p>
             I’ve spoken across the country at conferences and meet-ups about

@@ -8,10 +8,10 @@ import Subscribe from 'components/Subscribe';
 import ViewCounter from 'components/Home/ViewCounter';
 
 const editUrl = (slug) =>
-  `https://github.com/leerob/leerob.io/edit/main/data/blog/${slug}.mdx`;
+  `https://github.com/mj23978/nextjs-portfolio/edit/main/data/blog/${slug}.mdx`;
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://leerob.io/blog/${slug}`
+    `https://fluttensor.tk/blog/${slug}`
   )}`;
 
 export default function BlogLayout({
@@ -20,9 +20,9 @@ export default function BlogLayout({
 }: PropsWithChildren<{ post: Blog }>) {
   return (
     <Container
-      title={`${post.title} – Lee Robinson`}
+      title={`${post.title} – Fluttensor`}
       description={post.summary}
-      image={`https://leerob.io${post.image}`}
+      image={`https://fluttensor.tk${post.image}`}
       date={new Date(post.publishedAt).toISOString()}
       type="article"
     >
@@ -33,14 +33,14 @@ export default function BlogLayout({
         <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
           <div className="flex items-center">
             <Image
-              alt="Lee Robinson"
+              alt="Fluttensor"
               height={24}
               width={24}
-              src="/avatar.jpg"
+              src="/mj.png"
               className="rounded-full"
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-              {'Lee Robinson / '}
+              {'Fluttensor / '}
               {format(parseISO(post.publishedAt), 'MMMM dd, yyyy')}
             </p>
           </div>

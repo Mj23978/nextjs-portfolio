@@ -35,10 +35,12 @@ function Error({ statusCode }: { statusCode: number }) {
 
 	return (
 		<Container>
-      <div className="flex flex-row justify-center items-center">
-			  <h1 className="font-normal text-black dark:text-white">{statusCode}</h1>
-			  <div className="ml-4 pt-4 pb-4 px-4 border-l-2 border-l-['solid'] border-black">{errorMessage}.</div>
-      </div>
+			<div className="flex flex-row justify-center items-center my-32">
+				<h1 className="font-normal text-black dark:text-white">{statusCode}</h1>
+				<div className="ml-4 pt-4 pb-4 px-4 border-l-2 border-l-['solid'] dark:border-white border-black text-black dark:text-white">
+					{errorMessage}.
+				</div>
+			</div>
 		</Container>
 	);
 }

@@ -17,18 +17,18 @@ export default function Home() {
 				</h3>
 				<div className="flex gap-6 flex-col md:flex-row">
 					<BlogPostCard
-						title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
-						slug="style-guides-component-libraries-design-systems"
+						title="Create Most Complete Flutter Starter - Part1 (State Management and Navigation)"
+						slug="flutter-complete-starter-1"
 						gradient="from-[#D8B4FE] to-[#818CF8]"
 					/>
 					<BlogPostCard
-						title="Rust Is The Future of JavaScript Infrastructure"
-						slug="rust"
+						title="Which Back End Should I Use As A Front-End Developer?"
+						slug="backend"
 						gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
 					/>
 					<BlogPostCard
-						title="Past, Present, and Future of React State Management"
-						slug="react-state-management"
+						title="Why I Switched From CircleCI to GitHub Actions"
+						slug="github-actions"
 						gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
 					/>
 				</div>

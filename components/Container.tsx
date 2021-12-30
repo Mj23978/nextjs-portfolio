@@ -68,7 +68,7 @@ export default function Container(props) {
 		title: 'Fluttensor',
 		description: `Full Stack Web & Mobile Developer.`,
 		type: 'website',
-		image: '/mj.png',
+		image: 'static/images/mj.png',
 		...customMeta,
 	};
 

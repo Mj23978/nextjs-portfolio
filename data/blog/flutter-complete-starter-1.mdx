@@ -1,0 +1,251 @@
+---
+title: 'Create Most Complete Flutter Starter - Part1 (State Management and Navigation)'
+publishedAt: '2021-12-19'
+summary: 'In this blog series we are going to build most complete fluttre starter with localization, theme, navigation, logging, flavores, ci/cd, storage, state management and ... features.'
+image: '/blog/fsp11.png'
+---
+
+<Image
+  alt={`GitHub Actions Checks`}
+  src={`/blog/fsp11.png`}
+  width={1200}
+  height={630}
+  priority
+/>
+
+In this blog series we are going to build most complete flutter starter with this packages : [beamer](https://pub.dev/packages/beamer) - [riverpod](https://pub.dev/packages/riverpod) - [hive](https://pub.dev/packages/hive) - [logger](https://pub.dev/packages/logger) and muche more that has Localization, Theme, Navigation, Logging, Flavores, CI/CD, Storage, State Management and much more features
+
+You Can find the complete source code on this [link](https://github.com/Mj23978/sparrow_template) 
+
+## Table of Contents
+
+- [Before We Start](/blog/flutter-complete-starter-1#before-we-start)
+- [Create Project and Clean it](/blog/flutter-complete-starter-1#create-project-and-clean-it)
+  - [Folder Structure](/blog/flutter-complete-starter-1#folder-structure)
+- [Main File](/blog/flutter-complete-starter-1#main-file)
+- [Beamer and SplashView](/blog/flutter-complete-starter-1#beamer-and-splashview)
+- [Riverpod](/blog/flutter-complete-starter-1#riverpod)
+- [Conclusion](/blog/flutter-complete-starter-1#conclusion)
+
+## Before We Start
+Before we start this tutorial you should better follow steps below :
+
+* Install latest version of [Flutter](https://docs.flutter.dev/get-started/install) on your OS
+  * to Insure Installation was successful run `flutter doctor` in terminal and see that all tests pass.
+* Install [Vscode](https://code.visualstudio.com/download) and [Flutter Extension](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) and [Dart Import](https://marketplace.visualstudio.com/items?itemName=luanpotter.dart-import)
+
+## Create Project and Clean it
+Create New Flutter Project with Holding `Ctrl` + `Shift` + `P` and Search **New Flutter** and after creating your project it's time to add some dependency. So open a terminal and type these commands :
+
+```shell
+$  flutter pub get google_fonts
+$  flutter pub get beamer
+$  flutter pub get hooks_riverpod
+$  flutter pub get url_strategy
+$  flutter pub get rive_splash_screen
+```
+
+Beamer and Riverpod is the libraries we use for `Routing` and `State Management` and we use url_strategy to remove the leading hash (#) from the URL and we use [Rive](rive.app) animations on our splash screen
+
+### Folder Structure
+And last step beforewe start coding this Flutter Starter has `Folder Structure` you need to learn :
+* **lib/config** : Theme, Localization, Notification and Storage Files and Settings
+* **lib/core** : State Management, API and every Logic and functions we use in the app
+* **lib/models** : App Models ...
+* **lib/utils** : Helper Functions, Keys, Custom Extensions and ...
+* **lib/views** : Every page belong to our app
+* **lib/widgets** : Create our little components and widgets to build our views from
+* **assets** 
+  * **assets/img**
+  * **assets/fonts**
+  * **assets/rive**
+
+## Main File
+
+Now go to your `lib/main.dart` file and replace code with code below :
+```dart
+import 'package:beamer/beamer.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:url_strategy/url_strategy.dart';
+
+import 'views/404/404_view.dart';
+import 'views/routes.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
+
+  runApp(ProviderScope(child: MyApp()));
+}
+
+class MyApp extends StatelessWidget {
+  final parser = BeamerParser();
+  final routerDelegate = BeamerDelegate(
+    initialPath: '/',
+    locationBuilder: BeamerLocationBuilder(beamLocations: [
+      HomeLocation(),
+    ]),
+    notFoundPage: BeamPage(key: const ValueKey("404"), child: NotFoundPage()),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routeInformationParser: parser,
+      routerDelegate: routerDelegate,
+      backButtonDispatcher:
+          BeamerBackButtonDispatcher(delegate: routerDelegate),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+```
+
+as you see we setup beamer and riverpod in our `main.dart` file now go to your `views` folder and create `routes.dart` file and copy this code :
+```dart
+import 'package:beamer/beamer.dart';
+import 'package:flutter/material.dart';
+
+import 'splash_view.dart';
+
+class HomeLocation extends BeamLocation<BeamState> {
+  @override
+  List<Pattern> get pathPatterns => [
+        '/',
+      ];
+
+  @override
+  List<BeamPage> buildPages(BuildContext context, BeamState state) {
+    return [
+      BeamPage(key: ValueKey("Splash"), child: SplashView()),
+    ];
+  }
+}
+```
+
+## Beamer and SplashView
+
+Beamer is based on Flutter Navigation 2.0 and could sync routing with web URL and its params. for setup beamer we must create diffrent locations that user navigate from, every location can contain multiple patterns and show diffrent views.
+at this file we create a `HomeLocation` that shows `SplashView` at our base URL now lets create our Splash View at `lib/views/splash_view.dart` with :
+```dart
+import 'package:beamer/beamer.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:rive_splash_screen/rive_splash_screen.dart';
+
+import '../core/providers.dart';
+
+class SplashView extends HookConsumerWidget {
+  @override
+  Widget build(BuildContext context, ref) {
+    final state = ref.watch(splashProvider);
+    useCallback(() {
+      ref.watch(splashProvider.notifier).load();
+    }, []);
+    return SplashScreen.callback(
+      name: 'assets/rive/game-controller.riv',
+      backgroundColor: const Color(0xFF401734),
+      onSuccess: (data) {
+        //data is the optional data returned by until callback function
+        context.beamToNamed("/home", stacked: false);
+      },
+      onError: (err, stack) {
+        //error throw by until callback function
+        print(err);
+      },
+      alignment: Alignment.center,
+      fit: BoxFit.cover,
+      isLoading: state.value,
+      startAnimation: 'Animation 1',
+    );
+  }
+}
+```
+
+**make sure you add asses/rive/ path to your pubspec.yml file**<br />
+in this page we use riverpod and our `splashProvider` (we are going to create it) to show a rive animation until our loading function ends (on `useCallback` hook) and perform onSuccess and onError when ou loading is done. `Animation 1` is name of our desired animation on rive main artboard.
+
+## Riverpod
+Riverpod is more than just a Dependency Injection is a simple State Management solution that could catch bugs on compile time. now lets creeate this 3 files: <br />
+`lib/core/notifiers/splash_notifier.dart`
+```dart
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../states/splash_states.dart';
+
+class SplashNotifier extends StateNotifier<SplashState> {
+  SplashNotifier() : super(SplashState());
+
+  Future<void> load() async {
+    await Future.delayed(Duration(milliseconds: 800));
+    state = SplashState(value: !state.value);
+  }
+}
+```
+`lib/core/states/splash_states.dart`
+```dart
+class SplashState {
+  SplashState({this.value = false});
+
+  final bool value;
+}
+```
+`lib/core/providers.dart`
+```dart
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'notifiers/splash_notifier.dart';
+import 'states/splash_states.dart';
+
+final splashProvider = StateNotifierProvider<SplashNotifier, SplashState>((ref) {
+  return SplashNotifier();
+});
+```
+
+as you see we create one `StateNotifier` that has one function `load` on it that just wait 800ms and then resolves
+
+and at the end lets create a basic 404 page at `lib/views/404/404_view.dar`:
+```dart
+// ignore_for_file: file_names
+
+import 'package:flutter/material.dart';
+import 'package:beamer/beamer.dart';
+
+class NotFoundPage extends StatelessWidget {
+
+  const NotFoundPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final state = context.beamingHistory.reversed.toList()[1].state;
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Page Not Found',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
+            ),
+            const SizedBox(height: 25),
+            ElevatedButton(
+              child: Text(
+                'Back to ${state.routeInformation.location}',
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              ),
+              onPressed: () {
+                context.beamBack();
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+## Conclusion
